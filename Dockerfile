@@ -5,7 +5,8 @@ FROM golang:1.18-alpine
 WORKDIR /app
 
 # Copy the source code into the container
-COPY . .
+COPY go.mod ./
+COPY go.sum ./
 
 # Build the Go application
 RUN go build -o meli
