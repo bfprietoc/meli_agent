@@ -5,11 +5,12 @@ FROM golang:1.18-alpine
 WORKDIR /app
 
 # Copy the source code into the container
-COPY go.mod ./
-COPY go.sum ./
+COPY go.mod go.sum ./
+RUN go mod download
 
-# Build the Go application
-RUN go build -o meli
+# Copy the rest of the application files
+COPY . .
+
 
 # Expose the port the application will run on
 EXPOSE 8080
