@@ -2,6 +2,7 @@
 
 # Prueba Mercadolibre  - Compliance continuo de servidores
 Prueba tecnica para para MercadoLibre (Backend). 
+Basicamente dividi el problema en 2 partes, asi que se crearon dos repos para la solucion, uno donde se encuentra la aplicacion-server la cual se consume y que almacena y consulta la informacion solicitada, desplegado en una instancia de AWS que consume tambien una instancia Mysql desplegada en AWS.  La segunda parte es un archivo ejecutable de acuerdo a la arquitectura del sistema operativo, este es quien recolecta la informacion y la envia al servidor para ser almacenada, ambos repos estan desarrollados en Golang.
 
 ## Si se quiere ejecutar:
 ### Base de datos (Mysql)
