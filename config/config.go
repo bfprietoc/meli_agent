@@ -12,6 +12,7 @@ func Connect() *sql.DB {
 	dbPass := "Meli2023"
 	dbName := "meli"
 	//dbHost := "(127.0.0.1:3306)"
+
 	dbHostAws := "(melidbinstance-1.cnugeet3gyfb.us-east-2.rds.amazonaws.com)"
 
 	db, err := sql.Open(dbDriver, dbUser+":"+dbPass+"@tcp"+dbHostAws+"/"+dbName)
