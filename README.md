@@ -50,7 +50,20 @@ Tambien si se quiere, se puede consultar la informacion en el endpoint que ya se
 
 http://ec2-18-188-229-228.us-east-2.compute.amazonaws.com:8080/data
 
-Para 
+La misma Url anterior es la que se consume para almacenar la informacion pero con el metodo POST y la estructura json especifica:
+
+```
+{
+    "cpu_info": "Intel(R) Core(TM) i30-7360U CPU @ 2.30GHz\n",
+    "process_info": "[{\"pid\":\"1\",\"name\":\"/sbin/launchd\"}]",
+    "users_info": "[\"fabianprieto     console      Mar  8 19:56 \",\"fabianprieto     ttys001      Mar  9 22:11 \",\"\"]",
+    "os_info": "osInfo"
+}
+```
+* En el campo cpu_info se almacena la informacion del procesador.
+* En el campo process_info se almacena la informacion de los procesos que se encuentran activos, se almacena un arreglo con objetos que tienen el PID y el nombre del proceso.
+* En el campo users_info se almacena la informacion de los usuarios activos, contando las terminales en ejecucion.
+* Finalmente en el campo os_info almaceno la informacion del sistema operativo, su nombre y version. 
 
 ## Docker 
 1. Se usa docker para la gestion y el despliegue de la aplicacion que almacena y consulta la informacion enviada por el agente. 
@@ -76,7 +89,6 @@ https://github.com/bfprietoc/agent
 3. Se agregan diferentes archivos ejecutables del agente de acuerdo a la arquitectura y sistema operativo, para nuestro caso se usa el file linuxAmd64_agent, el cual es usado en debian como se solicito. 
 4. Adicional se deja el archivo main.go donde se encuentra la logica usada para crear el script ejecutable.
 
-## Ejecucion
 
 ### Requisitos
 
@@ -92,6 +104,15 @@ curl --version
 ```
 Nota. Normalmente esta libreria se instala cuando se hace un update de todo el sistema operativo.
 
+### Otorgar permisos de ejecucion
+
+Desde la terminal, nos situamos en la ubicacion del file descargado y ejecutamos el siguiente comando:
+
+```
+sudo chmod +x linuxAmd64_agent
+```
+### Ejecucion
+
 1. Se descarga el ejecutable especifico para la arquitectura, en nuestro caso usaremos una maquina virtual con Debian 11 entonces elegimos el file linuxAmd64_agent. 
 2. Abrimos la terminal y nos ubicamos en la ruta donde se encuentra el archivo descargado, procedemos a ejecutalo de la siguiente manera:
 
@@ -104,10 +125,7 @@ Nota. Normalmente esta libreria se instala cuando se hace un update de todo el s
 1. Para macOs es necesario dar permisos adicionales, para ellos ejecutamos el archivo que corresponde a la arquitectura utilizada, normalmente salta un error en la ejecucion, cerramos la patalla que informa del error, procedemos a ir a las configuraciones de seguridad y vemos un mensaje que nos pregunta si confiamos en el archivo, procedemos a aceptarlo y  automaticamente se vuelve a ejecutar.
 
 
-
-
-
-
-
 ### Ejercicio 
+
+
 
