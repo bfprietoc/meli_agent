@@ -85,7 +85,7 @@ Link al repo del agente:
 https://github.com/bfprietoc/agent
 
 1. Se crea un script en Golang para extraer la informacion solicitada por medio de comandos del sistema (Dependiendo el sistema operativo se usa uno u otro).
-2. El script reune la informacion y la envia directamente al servidor donde se almacena por medio de un metodo POST definido, inmediatamente despues de la ejecucion, la libreria curl se usa para hacer el consumo del endpoint desplegado.
+2. El script reune la informacion y la envia directamente al servidor (Se elige enviarla inmediatamente y no almacenarla para despues procesarla) donde se almacena por medio de un metodo POST definido, inmediatamente despues de la ejecucion, la libreria curl se usa para hacer el consumo del endpoint desplegado.
 3. Se agregan diferentes archivos ejecutables del agente de acuerdo a la arquitectura y sistema operativo, para nuestro caso se usa el file linuxAmd64_agent, el cual es usado en debian como se solicito. 
 4. Adicional se deja el archivo main.go donde se encuentra la logica usada para crear el script ejecutable.
 
@@ -123,9 +123,6 @@ sudo chmod +x linuxAmd64_agent
 
 ### Consideraciones
 1. Para macOs es necesario dar permisos adicionales, para ellos ejecutamos el archivo que corresponde a la arquitectura utilizada, normalmente salta un error en la ejecucion, cerramos la patalla que informa del error, procedemos a ir a las configuraciones de seguridad y vemos un mensaje que nos pregunta si confiamos en el archivo, procedemos a aceptarlo y  automaticamente se vuelve a ejecutar.
-
-
-### Ejercicio 
 
 
 
