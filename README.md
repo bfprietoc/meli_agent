@@ -46,7 +46,11 @@ docker run -p 8080:8080 meli
 
 5. La aplicacion se ejecutara en la ruta http://localhost:8080
 
-6. Se crearon dos endpoints, uno tipo GET donde se consutla la informacion almacenada en la base de datos y el otro tipo POST para la creacion de los datos, ambos se hacen contra la url http://localhost:8080/data
+6. Se crearon dos endpoints, uno tipo GET donde se consutla la informacion almacenada en la base de datos y el otro tipo POST para la creacion de los datos, ambos se hacen contra la url http://localhost:8080/data.
+
+Tambien si se quiere, se puede consultar la informacion en el endpoint que ya se encuentra desplegado en AWS
+
+http://ec2-18-188-229-228.us-east-2.compute.amazonaws.com:8080/data
 
 ## Docker 
 1. Se usa docker para la gestion y el despliegue de la aplicacion que almacena y consulta la informacion enviada por el agente. 
@@ -68,7 +72,7 @@ Link al repo del agente:
 https://github.com/bfprietoc/agent
 
 1. Se crea un script en Golang para extraer la informacion solicitada por medio de comandos del sistema (Dependiendo el sistema operativo se usa uno u otro).
-2. El script reune la informacion y la envia directamente al servidor donde se almacena, inmediatamente despues de la ejecucion.
+2. El script reune la informacion y la envia directamente al servidor donde se almacena por medio de un metodo POST definido, inmediatamente despues de la ejecucion, la libreria curl se usa para hacer el consumo del endpoint desplegado.
 3. Se agregan diferentes archivos ejecutables del agente de acuerdo a la arquitectura y sistema operativo, para nuestro caso se usa el file linuxAmd64_agent, el cual es usado en debian como se solicito. 
 4. Adicional se deja el archivo main.go donde se encuentra la logica usada para crear el script ejecutable.
 
