@@ -4,8 +4,7 @@
 Prueba tecnica para para MercadoLibre (Backend). 
 
 ## Si se quiere ejecutar:
-
-## Base de datos (Mysql)
+### Base de datos (Mysql)
 1. Descargamos y ejecutamos la imagen docker de Mysql con el siguiente comando:
 ``` 
 docker run -d \
@@ -34,11 +33,10 @@ La base de datos se expone por defecto en el puerto 3306, asi que usamos el mism
 ## App Go
 1. Descargar o clonar el repositorio a la maquina donde se desea correr.
 2. Ubicarse en el directorio meli_agent
-3. Ejecutar el comando:
+3. Ejecutar el siguiente comando para construir la imagen docker:
 ```
 docker build -t meli .
 ```
-con el fin de construir la imagen docker a ejecutar.
 4. Luego se puede correr la imagen ejecutando:
 ```
 docker run -p 8080:8080 meli
@@ -51,6 +49,8 @@ docker run -p 8080:8080 meli
 Tambien si se quiere, se puede consultar la informacion en el endpoint que ya se encuentra desplegado en AWS
 
 http://ec2-18-188-229-228.us-east-2.compute.amazonaws.com:8080/data
+
+Para 
 
 ## Docker 
 1. Se usa docker para la gestion y el despliegue de la aplicacion que almacena y consulta la informacion enviada por el agente. 
@@ -80,13 +80,13 @@ https://github.com/bfprietoc/agent
 
 ### Requisitos
 
-1. Instalacion de curl:
+### Instalacion de curl
 Ejecutar el siguiente comando en la consola
 
 ```
 sudo apt install curl
 ```
-Verificar la instalacion con el comando
+Verificar la instalacion con el comando:
 ```
 curl --version
 ```
