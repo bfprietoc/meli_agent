@@ -93,6 +93,8 @@ https://github.com/bfprietoc/agent
 
 ### Requisitos
 
+En el sistema operativo se la maquina donde se peinsa ejecutar el agente, es necesario tener instalado una libreria llamada curl, con la que se hace el envio de la informacion al servidor, adicional a eso es necesario dar algunos permisos extrar al script ejecutable.
+
 ### Instalacion de curl
 Ejecutar el siguiente comando en la consola
 
